@@ -1,0 +1,20 @@
+GET http://localhost:9080/weapi/api/weapons
+
+###
+
+GET http://localhost:9080/weapi/api/weapons/MP
+
+###
+
+POST http://localhost:9080/weapi/api/weapons
+Content-Type: application/json
+
+{
+    "name": "MP",
+    "type": "SMG",
+    "caliber": "9 mm"
+}
+
+###
+
+DELETE http://localhost:9080/weapi/api/weapons/MP
