@@ -2,7 +2,6 @@ package com.feltac.weapi.rest;
 
 import java.util.Optional;
 
-import com.feltac.weapi.dao.WeaponDao;
 import com.feltac.weapi.ejb.WeaponBean;
 import com.feltac.weapi.model.Weapon;
 
