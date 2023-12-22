@@ -1,6 +1,6 @@
 package com.feltac.weapi.rest;
 
-import java.util.Optional;
+import java.net.URI;
 
 import com.feltac.weapi.ejb.WeaponBean;
 import com.feltac.weapi.model.Weapon;
@@ -30,30 +30,25 @@ public class WeaponRessource {
     }
 
     @GET
-    @Path("/{weaponName}")
+    @Path("/{weaponId}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response retrieveOneWeapon(@PathParam("weaponName") String weaponName)
+    public Response retrieveOneWeapon(@PathParam("weaponId") int weaponId)
     {        
-        Optional<Weapon> res = weaponBean.retrieveOneWeapon(weaponName);
+        Weapon res = weaponBean.retrieveOneWeapon(weaponId);
 
-        if(res.isEmpty())
-        {
-            return Response.status(Status.NOT_FOUND).build();
-        }
-
-        return Response.ok(res.get()).build();
+        return Response.ok(res).build();
     } 
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public Response createWeapon(Weapon weapon)
-    {
-        if(!weaponBean.createWeapon(weapon))
-        {
-            return Response.status(Status.BAD_REQUEST).build();
+    {       
+        try {        
+            weaponBean.createWeapon(weapon);   
+            return Response.created(URI.create("/api/weapon/1")).build();
+        } catch (Exception e) {
+            return Response.status(Status.BAD_REQUEST).build(); 
         }
-
-        return Response.status(Status.CREATED).build();
     }
 
     @DELETE

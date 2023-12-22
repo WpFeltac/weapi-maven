@@ -6,6 +6,8 @@
         <feature>jakartaee-10.0</feature>
         <feature>microProfile-6.0</feature>
         <feature>cdi-4.0</feature>
+        <feature>jdbc-4.3</feature>
+        <feature>persistence-3.1</feature>
     </featureManager>
 
     
@@ -43,4 +45,18 @@
 
     <!-- Default SSL configuration enables trust for default certificates from the Java runtime -->
     <ssl id="defaultSSLConfig" trustDefaultCerts="true" />
+
+    <library id="jdbcLib">
+        <fileset dir="jdbc" includes="*.jar"/>
+    </library>
+
+    <dataSource id="jqmk3105_weapi" jndiName="jdbc/jqmk3105_weapi">
+        <jdbcDriver libraryRef="jdbcLib"/>
+        <properties 
+            serverName="feltac.net" 
+            portNumber="3306"                   
+            databaseName="jqmk3105_weapi"
+            user="jqmk3105_WEAPI" 
+            password="cykrO3ytuzF8"/>
+    </dataSource>
 </server>

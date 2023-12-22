@@ -1,29 +1,31 @@
 package com.feltac.weapi.ejb;
 
 import java.util.List;
-import java.util.Optional;
 
 import com.feltac.weapi.dao.WeaponDao;
 import com.feltac.weapi.model.Weapon;
 
 import jakarta.ejb.Stateless;
+import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
 
-@Stateless
+@RequestScoped
 public class WeaponBean {
     @Inject
     private WeaponDao weaponDao;
 
     public List<Weapon> retrieveAllWeapons()
-    {
+    {        
         return weaponDao.getAll();
     }
 
-    public Optional<Weapon> retrieveOneWeapon(String weaponName)
+    public Weapon retrieveOneWeapon(int id)
     {
-        return weaponDao.getOne(weaponName);
+        return weaponDao.getOne(id);
     }
 
+    @Transactional
     public Boolean createWeapon(Weapon weapon)
     {
         if(existsByName(weapon.getName()))
