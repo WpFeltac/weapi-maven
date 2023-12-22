@@ -17,7 +17,7 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.core.Response.Status;
 
-@Path("/weapons")
+@Path("/weaponapi")
 public class WeaponRessource {
     @Inject
     private WeaponBean weaponBean;
