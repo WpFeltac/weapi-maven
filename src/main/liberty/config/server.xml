@@ -3,11 +3,30 @@
 
     <!-- Enable features -->
     <featureManager>
+        <!-- pour faire des API REST -->
+        <feature>restfulWS-3.1</feature>
+
+        <!-- pour parser le JSON -->
+        <feature>jsonb-3.0</feature>
+        <feature>jsonp-2.1</feature>        
+
+        <!-- Injection de dépendances -->        
+        <feature>cdi-4.0</feature>
+
+        <!-- JSP -->
+        <feature>pages-3.1</feature>
+        
+        <!-- servlets -->
+        <feature>servlet-6.0</feature>
+
+        <!-- BDD MySql-->
+        <feature>jdbc-4.3</feature>
+
+        <!-- JPA-->
+        <feature>persistence-3.1</feature>
+
         <feature>jakartaee-10.0</feature>
         <feature>microProfile-6.0</feature>
-        <feature>cdi-4.0</feature>
-        <feature>jdbc-4.3</feature>
-        <feature>persistence-3.1</feature>
     </featureManager>
 
     

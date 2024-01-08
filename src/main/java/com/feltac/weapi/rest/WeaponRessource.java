@@ -17,7 +17,7 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.core.Response.Status;
 
-@Path("/weaponapi")
+@Path("/weapons")
 public class WeaponRessource {
     @Inject
     private WeaponBean weaponBean;
@@ -45,7 +45,7 @@ public class WeaponRessource {
     {       
         try {        
             weaponBean.createWeapon(weapon);   
-            return Response.created(URI.create("/api/weapon/1")).build();
+            return Response.created(URI.create("/api/weapon/" + weapon.getId())).build();
         } catch (Exception e) {
             return Response.status(Status.BAD_REQUEST).build(); 
         }

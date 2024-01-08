@@ -7,13 +7,6 @@
     metadata-complete="false">
     <display-name>Welcome to OpenLiberty</display-name>
     <description>Welcome to OpenLiberty</description>
-    <servlet>
-		<servlet-name>jakarta.ws.rs.core.Application</servlet-name>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>jakarta.ws.rs.core.Application</servlet-name>
-		<url-pattern>/api/*</url-pattern>
-	</servlet-mapping>
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
